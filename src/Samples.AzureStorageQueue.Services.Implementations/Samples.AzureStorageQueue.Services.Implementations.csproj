@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BradHuggins.Shared.AzureStorageQueueProxy" Version="0.6.1" />
+    <PackageReference Include="BradHuggins.Shared.HttpUtilities" Version="0.1.1" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="16.7.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Samples.AzureStorageQueue.Models\Samples.AzureStorageQueue.Models.csproj" />
+    <ProjectReference Include="..\Samples.AzureStorageQueue.Services.Interfaces\Samples.AzureStorageQueue.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\Samples.AzureStorageQueue.Services.Interfaces\Samples.AzureStorageQueue.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

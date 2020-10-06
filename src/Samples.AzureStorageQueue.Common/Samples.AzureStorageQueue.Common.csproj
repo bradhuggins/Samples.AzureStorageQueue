@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BradHuggins.Shared.AzureStorageQueueProxy" Version="0.3.0" />
+    <PackageReference Include="BradHuggins.Shared.HttpUtilities" Version="0.1.1" />
+    	<PackageReference Include="Microsoft.CodeCoverage" Version="16.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.7" />
+  </ItemGroup>
+
+</Project>
