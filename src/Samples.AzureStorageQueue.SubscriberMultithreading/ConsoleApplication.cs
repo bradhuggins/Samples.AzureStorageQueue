@@ -5,15 +5,14 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
-using System.Threading.Tasks;
 #endregion
 
 namespace Samples.AzureStorageQueue.SubscriberMultithreading
 {
     public class ConsoleApplication
     {
-        ILogger<ConsoleApplication> _logger;
-        IConfiguration _configuration;
+        readonly ILogger<ConsoleApplication> _logger;
+        readonly IConfiguration _configuration;
         private static ConcurrentDictionary<int, object> _runningThreads;
         ISecondaryAppThread _secondaryAppThread;
 

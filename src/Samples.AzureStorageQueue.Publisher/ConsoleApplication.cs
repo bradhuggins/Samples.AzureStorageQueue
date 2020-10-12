@@ -1,5 +1,4 @@
 ﻿#region Using Statements
-using Azure.Storage.Queues.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Samples.AzureStorageQueue.Services.Implementations;
@@ -12,9 +11,9 @@ namespace Samples.AzureStorageQueue.Publisher
 {
     public class ConsoleApplication
     {
-        ILogger<ConsoleApplication> _logger;
-        IConfiguration _configuration;
-        IPublisherService _service;
+        readonly ILogger<ConsoleApplication> _logger;
+        readonly IConfiguration _configuration;
+        readonly IPublisherService _service;
 
         public string ErrorMessage { get; set; }
 
@@ -24,7 +23,7 @@ namespace Samples.AzureStorageQueue.Publisher
         }
 
         public ConsoleApplication(
-            ILogger<ConsoleApplication> logger, 
+            ILogger<ConsoleApplication> logger,
             IConfiguration configuration,
             IPublisherService service
             )
@@ -38,7 +37,8 @@ namespace Samples.AzureStorageQueue.Publisher
         {
             //do work here (call a service)
             int x = 0;
-            do {
+            do
+            {
 
                 int wait = new Random().Next(500, _configuration.GetValue<int>("BasicDelayMaxMs"));
                 string startMessage = $"Executing Run in {_configuration.GetValue<string>("Environment")}. Waiting for {wait.ToString()} ms.";
@@ -49,7 +49,7 @@ namespace Samples.AzureStorageQueue.Publisher
 
                 System.Threading.Thread.Sleep(wait);
             }
-            while(x == 0);
+            while (x == 0);
 
             _logger.LogInformation("Run Completed.");
         }

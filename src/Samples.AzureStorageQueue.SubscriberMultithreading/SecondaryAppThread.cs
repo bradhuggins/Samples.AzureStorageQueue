@@ -9,9 +9,9 @@ namespace Samples.AzureStorageQueue.SubscriberMultithreading
 {
     public class SecondaryAppThread : ISecondaryAppThread
     {
-        ILogger<SecondaryAppThread> _logger;
-        IConfiguration _configuration;
-        ISubscriberService _service;
+        readonly ILogger<SecondaryAppThread> _logger;
+        readonly IConfiguration _configuration;
+        readonly ISubscriberService _service;
 
         public int Id { get; set; }
 
@@ -23,7 +23,7 @@ namespace Samples.AzureStorageQueue.SubscriberMultithreading
         }
 
         public SecondaryAppThread(
-            ILogger<SecondaryAppThread> logger, 
+            ILogger<SecondaryAppThread> logger,
             IConfiguration configuration,
             ISubscriberService service
             )

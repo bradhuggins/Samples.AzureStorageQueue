@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Samples.AzureStorageQueue.Models {
-    using System;
-    
-    
+namespace Samples.AzureStorageQueue.Models
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

@@ -12,15 +12,15 @@ namespace Samples.AzureStorageQueue.Services.Implementations
     public class SubscriberService : SimpleServiceBase, ISubscriberService
     {
 
-        private ILogger<SubscriberService> _logger;
-        private IConfiguration _configuration;
-        private Shared.AzureStorageQueueProxy.IService _service;
-        private string _queueName = Constants.QUEUE_NAME;
+        private readonly ILogger<SubscriberService> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly Shared.AzureStorageQueueProxy.IService _service;
+        private readonly string _queueName = Constants.QUEUE_NAME;
 
 
         public SubscriberService(
-            ILogger<SubscriberService> logger, 
-            IConfiguration configuration, 
+            ILogger<SubscriberService> logger,
+            IConfiguration configuration,
             Shared.AzureStorageQueueProxy.IService service
             )
         {
@@ -42,17 +42,17 @@ namespace Samples.AzureStorageQueue.Services.Implementations
             }
             else
             {
-                if(message != null)
+                if (message != null)
                 {
                     _logger.LogInformation("SUBSCRIBE: " + message);
 
                     //parse message and do some processing
-                    QueueItem item = await Shared.HttpUtilities.JsonHelper.Deserialize<QueueItem>(message.MessageText);
+                    QueueItem item = await Shared.Utilities.JsonHelper.Deserialize<QueueItem>(message.MessageText);
                     string output = $"ID: {item.Id.ToString()}";
-                    if(item.Message.AdditionalProperties != null)
+                    if (item.Message.AdditionalProperties != null)
                     {
                         string source = string.Empty;
-                        if(item.Message.AdditionalProperties.TryGetValue("source", out source))
+                        if (item.Message.AdditionalProperties.TryGetValue("source", out source))
                         {
                             output += $" | Source: {source}";
                         }

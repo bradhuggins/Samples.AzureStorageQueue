@@ -53,7 +53,7 @@ namespace Samples.AzureStorageQueue.Subscriber
             services.AddTransient<Shared.AzureStorageQueueProxy.IService, Shared.AzureStorageQueueProxy.Service>();
             //services.AddTransient<Samples.AzureStorageQueue.Services.Interfaces.IPublisherService, Samples.AzureStorageQueue.Services.Implementations.PublisherService>();
             services.AddTransient<Samples.AzureStorageQueue.Services.Interfaces.ISubscriberService, Samples.AzureStorageQueue.Services.Implementations.SubscriberService>();
-            services.AddSingleton<Shared.HttpUtilities.JsonHelper>();
+            services.AddSingleton<Shared.Utilities.JsonHelper>();
             _serviceProvider = services.BuildServiceProvider(true);
         }
 

@@ -1,8 +1,6 @@
 ﻿#region Using Statements
-using Azure.Storage.Queues.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Samples.AzureStorageQueue.Services.Implementations;
 using Samples.AzureStorageQueue.Services.Interfaces;
 using System;
 using System.Threading.Tasks;
@@ -12,9 +10,9 @@ namespace Samples.AzureStorageQueue.Subscriber
 {
     public class ConsoleApplication
     {
-        ILogger<ConsoleApplication> _logger;
-        IConfiguration _configuration;
-        ISubscriberService _service;
+        readonly ILogger<ConsoleApplication> _logger;
+        readonly IConfiguration _configuration;
+        readonly ISubscriberService _service;
 
         public string ErrorMessage { get; set; }
 
@@ -24,7 +22,7 @@ namespace Samples.AzureStorageQueue.Subscriber
         }
 
         public ConsoleApplication(
-            ILogger<ConsoleApplication> logger, 
+            ILogger<ConsoleApplication> logger,
             IConfiguration configuration,
             ISubscriberService service
             )

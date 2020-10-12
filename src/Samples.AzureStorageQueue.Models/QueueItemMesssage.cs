@@ -10,7 +10,7 @@ namespace Samples.AzureStorageQueue.Models
 
         public string Body { get; set; }
 
-        public Dictionary<string,string> AdditionalProperties { get; set; }
+        public Dictionary<string, string> AdditionalProperties { get; set; }
 
 
     }

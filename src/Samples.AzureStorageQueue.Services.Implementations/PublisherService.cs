@@ -1,8 +1,8 @@
 ﻿#region Using Statements
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Samples.AzureStorageQueue.Services.Interfaces;
 using Samples.AzureStorageQueue.Models;
+using Samples.AzureStorageQueue.Services.Interfaces;
 using System.Threading.Tasks;
 #endregion
 
@@ -10,14 +10,14 @@ namespace Samples.AzureStorageQueue.Services.Implementations
 {
     public class PublisherService : SimpleServiceBase, IPublisherService
     {
-        private ILogger<PublisherService> _logger;
-        private IConfiguration _configuration;
-        private Shared.AzureStorageQueueProxy.IService _service;
-        private string _queueName = Constants.QUEUE_NAME;
+        private readonly ILogger<PublisherService> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly Shared.AzureStorageQueueProxy.IService _service;
+        private readonly string _queueName = Constants.QUEUE_NAME;
 
         public PublisherService(
-            ILogger<PublisherService> logger, 
-            IConfiguration configuration, 
+            ILogger<PublisherService> logger,
+            IConfiguration configuration,
             Shared.AzureStorageQueueProxy.IService service
             )
         {
@@ -29,12 +29,12 @@ namespace Samples.AzureStorageQueue.Services.Implementations
 
         public async Task Publish(QueueItem item)
         {
-            string message = Shared.HttpUtilities.JsonHelper.Serialize(item);
+            string message = Shared.Utilities.JsonHelper.Serialize(item);
             _logger.LogInformation("PUBLISH: " + message);
             var newMessage = await _service.CreateMessageAsync(_queueName, message);
             if (_service.HasError)
             {
-                this.ErrorMessage = _service.ErrorMessage;                
+                this.ErrorMessage = _service.ErrorMessage;
                 _logger.LogError("ERROR: " + this.ErrorMessage);
             }
             else

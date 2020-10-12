@@ -16,10 +16,10 @@ namespace Samples.AzureStorageQueue.Services.Implementations
             toReturn.Timestamp = DateTime.UtcNow;
             toReturn.Message = new QueueItemMesssage();
             toReturn.Message.Body = Convert.ToBase64String(Encoding.Default.GetBytes(toReturn.Id.ToString()));
-            
+
             toReturn.Message.AdditionalProperties = new Dictionary<string, string>();
-            int op1 = new Random().Next(0,2);
-            if(op1 == 0)
+            int op1 = new Random().Next(0, 2);
+            if (op1 == 0)
             {
                 toReturn.Message.AdditionalProperties.Add("source", "alpha");
             }
@@ -29,7 +29,7 @@ namespace Samples.AzureStorageQueue.Services.Implementations
             }
 
             int op2 = new Random().Next(0, 2);
-            if(op2 != 0)
+            if (op2 != 0)
             {
                 toReturn.Message.AdditionalProperties.Add("foreignKey", new Random().Next(0, 9999999).ToString());
             }
