@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.AzureStorageQueue.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.AzureStorageQueue.Services.Interfaces", "src\Samples.AzureStorageQueue.Services.Interfaces\Samples.AzureStorageQueue.Services.Interfaces.csproj", "{9EC5DAE5-68B6-42E3-902F-CBDA3E828F18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.AzureStorageQueue.SubscriberMultithreading", "src\Samples.AzureStorageQueue.SubscriberMultithreading\Samples.AzureStorageQueue.SubscriberMultithreading.csproj", "{18921C37-5589-414A-A4B5-788DA816BBAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.AzureStorageQueue.SubscriberMultithreading", "src\Samples.AzureStorageQueue.SubscriberMultithreading\Samples.AzureStorageQueue.SubscriberMultithreading.csproj", "{18921C37-5589-414A-A4B5-788DA816BBAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.AzureStorageQueue.WebApi", "src\Samples.AzureStorageQueue.WebApi\Samples.AzureStorageQueue.WebApi.csproj", "{9673BB16-76F3-4B32-B31A-E3D852514F23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{18921C37-5589-414A-A4B5-788DA816BBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18921C37-5589-414A-A4B5-788DA816BBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18921C37-5589-414A-A4B5-788DA816BBAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9673BB16-76F3-4B32-B31A-E3D852514F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9673BB16-76F3-4B32-B31A-E3D852514F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9673BB16-76F3-4B32-B31A-E3D852514F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9673BB16-76F3-4B32-B31A-E3D852514F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{20E52F6B-DF45-44FE-8BA5-378094B689D0} = {F3CCD58A-1EBF-43B3-B1D7-B23CF5670968}
 		{9EC5DAE5-68B6-42E3-902F-CBDA3E828F18} = {F3CCD58A-1EBF-43B3-B1D7-B23CF5670968}
 		{18921C37-5589-414A-A4B5-788DA816BBAD} = {F3CCD58A-1EBF-43B3-B1D7-B23CF5670968}
+		{9673BB16-76F3-4B32-B31A-E3D852514F23} = {F3CCD58A-1EBF-43B3-B1D7-B23CF5670968}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29471429-C000-469A-8B76-F669C58FDFEC}

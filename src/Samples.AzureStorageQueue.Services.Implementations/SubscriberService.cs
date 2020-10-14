@@ -86,6 +86,32 @@ namespace Samples.AzureStorageQueue.Services.Implementations
 
         }
 
+        public async Task<QueueItem> PeekNextMessage()
+        {
+            QueueItem toReturn = null;
+            var message = await _service.ReadMessageAsync(_queueName);
+            if (_service.HasError)
+            {
+                this.ErrorMessage = _service.ErrorMessage;
+                _logger.LogError("ERROR: " + this.ErrorMessage);
+            }
+            else
+            {
+                if (message != null)
+                {
+                    _logger.LogInformation("SUBSCRIBE: " + message);
+
+                    //parse message and do some processing
+                    toReturn = await Shared.Utilities.JsonHelper.Deserialize<QueueItem>(message.MessageText);                    
+                }
+                else
+                {
+                    _logger.LogInformation("No messages found.");
+                }
+            }
+            return toReturn;
+
+        }
     }
 
 

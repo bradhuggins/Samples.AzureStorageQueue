@@ -15,7 +15,8 @@ namespace Samples.AzureStorageQueue.Services.Implementations
             toReturn.Id = Guid.NewGuid();
             toReturn.Timestamp = DateTime.UtcNow;
             toReturn.Message = new QueueItemMesssage();
-            toReturn.Message.Body = Convert.ToBase64String(Encoding.Default.GetBytes(toReturn.Id.ToString()));
+            //toReturn.Message.Body = Convert.ToBase64String(Encoding.Default.GetBytes(toReturn.Id.ToString()));
+            toReturn.Message.Body = Shared.Utilities.StringHelper.Reverse(toReturn.Id.ToString());
 
             toReturn.Message.AdditionalProperties = new Dictionary<string, string>();
             int op1 = new Random().Next(0, 2);
@@ -33,6 +34,19 @@ namespace Samples.AzureStorageQueue.Services.Implementations
             {
                 toReturn.Message.AdditionalProperties.Add("foreignKey", new Random().Next(0, 9999999).ToString());
             }
+            return toReturn;
+        }
+
+        public static QueueItem GetQueueItemForApi(string message)
+        {
+            QueueItem toReturn = new QueueItem();
+            toReturn.Id = Guid.NewGuid();
+            toReturn.Timestamp = DateTime.UtcNow;
+            toReturn.Message = new QueueItemMesssage();
+            toReturn.Message.Body = message;
+
+            toReturn.Message.AdditionalProperties = new Dictionary<string, string>();
+            toReturn.Message.AdditionalProperties.Add("source", "api");
             return toReturn;
         }
 

@@ -1,4 +1,5 @@
 ﻿#region Using Statements
+using Samples.AzureStorageQueue.Models;
 using System.Threading.Tasks;
 #endregion
 
@@ -10,6 +11,8 @@ namespace Samples.AzureStorageQueue.Services.Interfaces
         bool HasError { get; }
 
         Task<bool> ProcessNextMessage();
+
+        Task<QueueItem> PeekNextMessage();
 
     }
 }
