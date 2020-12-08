@@ -29,8 +29,9 @@ namespace Samples.AzureStorageQueue.Services.Implementations
 
         public async Task Publish(QueueItem item)
         {
-            string message = Shared.Utilities.JsonHelper.Serialize(item);
-            _logger.LogInformation("PUBLISH: " + message);
+            string jsonMsg = Shared.Utilities.JsonHelper.Serialize(item);
+            string message = Utilities.ToBase64EncodedString(jsonMsg);
+            _logger.LogInformation("PUBLISH: " + jsonMsg);
             var newMessage = await _service.CreateMessageAsync(_queueName, message);
             if (_service.HasError)
             {

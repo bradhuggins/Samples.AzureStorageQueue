@@ -50,5 +50,27 @@ namespace Samples.AzureStorageQueue.Services.Implementations
             return toReturn;
         }
 
+        /// <summary>
+        /// Used to convert a string into the Base64 encoded representation.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>string</returns>
+        public static string ToBase64EncodedString(string value)
+        {
+            string result = Convert.ToBase64String(Encoding.Default.GetBytes(value.Trim()));
+            return result;
+        }
+
+        /// <summary>
+        /// Used to decode a Based64 encoded string.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>string</returns>
+        public static string ToBase64DecodedString(string value)
+        {
+            string result = Encoding.Default.GetString(Convert.FromBase64String(value.Trim()));
+            return result;
+        }
+
     }
 }

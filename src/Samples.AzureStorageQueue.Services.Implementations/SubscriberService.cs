@@ -47,7 +47,7 @@ namespace Samples.AzureStorageQueue.Services.Implementations
                     _logger.LogInformation("SUBSCRIBE: " + message);
 
                     //parse message and do some processing
-                    QueueItem item = await Shared.Utilities.JsonHelper.Deserialize<QueueItem>(message.MessageText);
+                    QueueItem item = await Shared.Utilities.JsonHelper.Deserialize<QueueItem>(Utilities.ToBase64DecodedString(message.MessageText));
                     string output = $"ID: {item.Id.ToString()}";
                     if (item.Message.AdditionalProperties != null)
                     {
